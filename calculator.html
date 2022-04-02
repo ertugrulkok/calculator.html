@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <div class="subcontainer_lower">
+          <p class="result" id="result"></p>
+          <br />
+
+          <button id="button_id" onclick="execute();">Calculate</button>
+
+          <br />
+        </div>
+        <div class="subcontainer_upper">
+          <input type="number" id="number_1" placeholder="Enter a Value" />
+          <input type="text" id="sign" placeholder="+    -    /    *    " />
+          <input type="number" id="number_2" placeholder="Enter a Value" />
+        </div>
+      </div>
+    </section>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .here {
+        text-align: center;
+      }
+      .result {
+        display: grid;
+        place-items: center;
+        width: 200px;
+        height: 80px;
+        text-align: center;
+        font-size: 50px;
+        padding-bottom: 30px;
+        color: red;
+        font-weight: 700;
+        
+      }
+
+      .container {
+        display: grid;
+        place-items: center;
+        height: 500px;
+
+        padding: 2rem;
+        width: 300px;
+        background-image: url(/JS/Resim12.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        background-color: burlywood;
+      }
+
+      button,input {
+        display: block;
+        margin-bottom: 2rem;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+        border: 2px solid black;
+        font-size: 20px;
+      }
+
+      button {
+        border: 3px solid black;
+        border-radius: 20px;
+        background-color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        transition: all 200ms;
+        cursor: pointer;
+        
+      }
+
+      button:hover {
+        transform: scale(0.95);
+        background-color: rgb(111, 0, 255);
+        color: white;
+      }
+    </style>
+
+    <script>
+      function sum(number1, number2) {
+        result = number1 + number2;
+        return result;
+      }
+
+      function sub(number1, number2) {
+        result = number1 - number2;
+        return result;
+      }
+      function mult(number1, number2) {
+        result = number1 * number2;
+        return result;
+      }
+      function div(number1, number2) {
+        result = number1 / number2;
+        return result;
+      }
+      function execute() {
+        number1 = document.getElementById("number_1").value;
+        number2 = document.getElementById("number_2").value;
+        sign = document.getElementById("sign").value;
+        result = document.getElementById("result");
+        number1 = parseFloat(number1);
+        number2 = parseFloat(number2);
+
+        if (sign == "+") {
+          result = result.innerHTML = sum(number1, number2);
+        } else if (sign == "-") {
+          result = result.innerHTML = sub(number1, number2);
+        } else if (sign == "*") {
+          result = result.innerHTML = mult(number1, number2);
+        } else if (sign == "/") {
+          result = result.innerHTML = div(number1, number2).toFixed(2);
+        }
+      }
+    </script>
+  </body>
+</html>
